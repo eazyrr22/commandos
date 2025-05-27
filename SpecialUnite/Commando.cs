@@ -7,20 +7,19 @@ using System.Threading.Tasks;
 namespace SpecialUnite
 {
    
-public class Commando
+public abstract class Commando
     {
         // fields
         public string Name { get; set; }
-        public string NickName { get; set; }
+        public string CodeName { get; set; }
 
-        public string[] Tools = { "Hammer", "chisel", "rope", "bag", "water", "bottle" };
-
+        public  string[] Tools;
         public string Status { get; set; }
 
         public Commando(string name,string nickname,string status) 
-        { 
+        {
             this.Name = name;
-            this.NickName = nickname;
+            this.CodeName = nickname;
             this.Status = status;
            
         }
@@ -37,11 +36,23 @@ public class Commando
             Console.WriteLine("the soldier is hiding");
         }
 
-        public void Attack()
+        public virtual void Attack()
         {
-            Console.WriteLine($"{NickName} is attacking");
+            Console.WriteLine($"{CodeName} is attacking");
         }
 
+        public string SayName(string CommanderRank)
+        {
+            if (CommanderRank == "general")
+            {
+                return Name;
+            }
+            else if (CommanderRank == "colonel")
+            {
+                return CodeName ;
+            }
+            return "not allowed";
+        }
 
     }
 }

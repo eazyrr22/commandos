@@ -5,12 +5,25 @@ namespace SpecialUnite
     {
         static void Main(string[] args)
         {
-            Commando soldier = new Commando("john", "x", "standing");
-            weapon gun = new weapon("gun", "glock", 10);
-            soldier.Attack();
-            Console.WriteLine(soldier.Status);
-            gun.Shoot();
-            Console.WriteLine(gun.Contain);
+            List<Commando> commandos = new List<Commando>();
+            AirCommando soldierA = new AirCommando("john", "x", "standing");
+            commandos.Add(soldierA);
+            SeaCommando soldierB = new SeaCommando("alex", "y", "standing");
+            commandos.Add(soldierB);
+            LandCommando soldierC = new LandCommando("sergei", "z", "standing");
+            commandos.Add(soldierC);
+
+            foreach (Commando commando in commandos)
+            {
+                commando.Attack();
+            }
+
+
+           
+
+
+
+
 
         }
     }
